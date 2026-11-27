@@ -1,7 +1,7 @@
 print("hello world")
 def main():
-    from screen_manager import screen_manager
-    from game import game
+    from ScreenManager import screen_manager
+    from Game import game
     import pygame
     pygame.init()
     clock = pygame.time.Clock()
