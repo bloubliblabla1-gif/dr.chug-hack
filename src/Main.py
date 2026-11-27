@@ -15,12 +15,12 @@ def main():
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                main_screen_manager.display_text("nope",100,100,time=5)
+                main_screen_manager.display_text("nope", 100, 100, time=5)
         keys = pygame.key.get_pressed()
         if clock.get_fps() > 0:
             delta_multiplier = 60 / clock.get_fps()
-        main_screen_manager.update_screen(keys,delta_multiplier)
-        main_game.update(keys,delta_multiplier)
+        main_screen_manager.update_screen(keys, delta_multiplier)
+        main_game.update(keys, delta_multiplier)
         clock.tick(60)
 
 if __name__ == "__main__":
