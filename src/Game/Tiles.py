@@ -1,26 +1,18 @@
 import pygame
 import Images
 
-class tile:
+class object:
     def __init__(self, type, main_screen_manager, x, y):
-        self.type = type
+        self.type = object_type
         self.main_screen_manager = main_screen_manager
-        self.x = x * Images.tile_size
-        self.y = y * Images.tile_size
-        if self.type == "spawn":
-            self.image = Images.spawn_tile_surface
-            self.max_dura = "N/a"
-        elif self.type == "spike":
-            self.image = Images.spike_tile_surface
-            self.max_dura = "N/a"
-        elif Images.get_random_surface_from_desktop() is not None:
-            if self.type == "weak":
-                self.image = Images.get_random_surface_from_desktop()
-                self.max_dura = 2
-            if self.type == "strong":
-                self.image = Images.get_random_surface_from_desktop()
-                self.max_dura = 5
-        self.current_dura = self.max_dura
+        self.image = Images.images[self.object_type]
+        
+    def update(self,):
+        self.main_screen_manager.blit(self.x, self.y, self.image)
+        if self.object_type == "meteor":
+            self.y += 1
+            look_for_collisons(5)
 
-    def update(self, camera):
-        self.main_screen_manager.blit(self.x - camera.x, self.y - camera.y, self.image)
+    def should_delete(self):
+        if self.should_delete_var:
+            return True
