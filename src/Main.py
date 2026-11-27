@@ -1,8 +1,10 @@
+from ScreenManager import screen_manager
+from Game import game
+import pygame
+
 print("hello world")
+
 def main():
-    from ScreenManager import screen_manager
-    from Game import game
-    import pygame
     pygame.init()
     clock = pygame.time.Clock()
     screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
@@ -20,5 +22,6 @@ def main():
         main_screen_manager.update_screen(keys,delta_multiplier)
         main_game.update(keys,delta_multiplier)
         clock.tick(60)
+
 if __name__ == "__main__":
     main()
