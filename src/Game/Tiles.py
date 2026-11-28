@@ -32,8 +32,8 @@ class object:
                 case 4:
                     self.x = random.randint(main_screen_manager.screenX)
                     self.y = 0
-            self.x
-            self.y
+            current_pos = pygame.math.Vector2((self.x,self.y))
+            target_pos = pygame.math.Vector2((main_screen_manager.screenX/2,main_screen_manager.screenY/2))
             self.image =
             self.mask =
             if self.x < 10 and self.y<10 and self.x > -10 and self.y > -10:
