@@ -1,4 +1,4 @@
-from Images import images
+from Images import images, gfos
 import pygame
 class dr:
     def __init__(self, main_screen_manager,game):
@@ -9,21 +9,22 @@ class dr:
         self.mask = pygame.mask.from_surface(self.image)
         self.game = game
 
-    def update(self):
+    def update(self, keys, delta_multiplier):
         self.main_screen_manager.blit(self.x, self.y, self.image)
-        walk_speed_mult = 2
+        walk_speed_mult = gfos(60)
+
         if self.y > 0 + self.game.delta_multiplier * walk_speed_mult:
-            if self.game.keys[pygame.K_W]:
+            if keys[pygame.K_W]:
                 self.y -= self.game.delta_multiplier * walk_speed_mult
 
         if self.main_screen_manager.screen_Y > self.y + self.game.delta_multiplier * walk_speed_mult:
-            if self.game.keys[pygame.K_S]:
+            if keys[pygame.K_S]:
                 self.y += self.game.delta_multiplier * walk_speed_mult
 
         if self.x > 0 + self.game.delta_multiplier * walk_speed_mult:
-            if self.game.keys[pygame.K_A]:
+            if keys[pygame.K_A]:
                 self.x -= self.game.delta_multiplier * walk_speed_mult
 
         if self.main_screen_manager.screen_X > self.x + self.game.delta_multiplier * walk_speed_mult:
-            if self.game.keys[pygame.K_D]: 
+            if keys[pygame.K_D]: 
                 self.x += self.game.delta_multiplier * walk_speed_mult

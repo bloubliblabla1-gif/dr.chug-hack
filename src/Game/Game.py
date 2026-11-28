@@ -1,9 +1,11 @@
 import Tiles
+import dr
 class game:
     def __init__(self, screen_manager):
         self.screen_manager = screen_manager
         self.survived_time = 0
         self.objects = []
+        self.game_started = False
 
     def update_game(self, keys, delta_multiplier):
         # Game update logic here
@@ -12,9 +14,11 @@ class game:
             self.remove_virus()
 
         for obj in self.objects:
-            obj.update()
+            obj.update(delta_multiplier)
             if obj.should_delete():
                 self.objects.remove(obj)
+
+        self.player.update(keys, delta_multiplier)
 
     def update(self, keys, delta_multiplier):
         if self.game_started:
@@ -22,6 +26,7 @@ class game:
 
     def start_game(self):
         self.game_started = True
+        self.player = dr(self.screen_manager,self)
 
     def delay_game(self):
         # gerald will figure it out
