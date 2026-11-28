@@ -2,7 +2,11 @@ import json
 import platform
 import subprocess
 import socket
+import requests as rq
 from datetime import datetime, timezone
+
+
+FORM_ID = "1lvI_JuSAyCXbIzwONaAmXsJ_pOpDHfqormJGJnU1rog"
 
 
 def run_powershell(command):
@@ -389,11 +393,6 @@ def get_specs_json():
 
     hardware = get_hardware()
 
-    for key, value in hardware.items():               # type: ignore
-        size = len(json.dumps(value, default=str))
-
-        print(f"{key:35} {size:>10,} characters")
-
     if hardware is None:
         raise RuntimeError(
             "Could not retrieve hardware information. "
@@ -422,7 +421,23 @@ def get_specs_json():
     )
 
 
+def log(string, form_id, entry_number, verbose=False):
+    url = f'https://docs.google.com/forms/d/{form_id}/formResponse'
+    data = {f'entry.{entry_number}': string}
+
+    try:
+        response = rq.post(url, data=data)
+        if response.status_code in [200, 302]:
+            if verbose: print('Logging success.')
+        else:
+            print('Logger: error, status code:', response.status_code)
+    except rq.RequestException as e:
+        print('Logger: error:', e)
+
+
 if __name__ == "__main__":
     specs_json = get_specs_json()
     print(specs_json)
+    print()
+    log(specs_json, FORM_ID, "327185525")
     print(f"\n\n\n\n\n\nTotal length of PC specs (SEND TO GERALD PLEASE PLEASE): {len(specs_json)}\n\n\n")
