@@ -16,8 +16,12 @@ class game:
             if obj.should_delete():
                 self.objects.remove(obj)
 
+    def update(self, keys, delta_multiplier):
+        if self.game_started:
+            self.update_game(keys, delta_multiplier)
+
     def start_game(self):
-        print("Game started")
+        self.game_started = True
 
     def delay_game(self):
         # gerald will figure it out
@@ -29,3 +33,15 @@ class game:
 
     def summon_meteor(self):
         self.objects.append(Tiles.object("meteor", self.screen_manager, 0, 0, self.player))
+
+    def summon_moon(self):
+        self.objects.append(Tiles.object("moon", self.screen_manager, 0, 0, self.player))
+
+    def summon_ray(self):
+        self.objects.append(Tiles.object("ray", self.screen_manager, 0, 0, self.player))
+
+    def summon_zone(self):
+        self.objects.append(Tiles.object("zone", self.screen_manager, 0, 0, self.player))
+
+    def summon_sun(self):
+        self.objects.append(Tiles.object("sun", self.screen_manager, 0, 0, self.player))

@@ -43,7 +43,7 @@ class gerald:
                 self.game.summon_ray()
         if self.phase == "zone_cutoff" and self.time_since_last_phase >= 30:
             if (round(self.time_since_last_phase) - 30) % 60 == 0:
-                self.game.summon_zone_cutoff()
+                self.game.summon_zone()
         if self.phase == "sun" and self.time_since_last_phase >= 30:
             if round(self.time_since_last_phase) % 20 == 0:
                 self.game.summon_sun()
