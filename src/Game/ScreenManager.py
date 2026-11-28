@@ -1,5 +1,5 @@
 import pygame
-from Images import images
+from Images import images, gfos
 
 
 class screen_manager:
@@ -34,7 +34,7 @@ class text:
         self.basetime = basetime
         self.font1 = pygame.font.SysFont(None, size)
         text_surface = self.font1.render(self.text, True, (0, 0, 0))
-        self.screen.blit(text_surface, (35, 385))
+        self.screen.blit(text_surface, (gfos(10), gfos(2)))
     def update(self, delta_multiplier):
         self.basetime -= (1/60) * delta_multiplier
         if self.basetime <= 0:
@@ -51,14 +51,14 @@ class gui:
         self.mask = pygame.mask.from_surface(self.image)
         self.object_type = object_type
         if object_type == "play":
-            self.x = 100
-            self.y = 300
+            self.x = gfos(10)
+            self.y = gfos(3)
         if object_type == "busy":
-            self.x = 600
-            self.y = 300
+            self.x = gfos(4)
+            self.y = gfos(3)
         if object_type == "banner":
-            self.x = 100
-            self.y = 100
+            self.x = gfos(10)
+            self.y = gfos(10)
         self.screen_manager = screen_manager
 
     def update(self,game):

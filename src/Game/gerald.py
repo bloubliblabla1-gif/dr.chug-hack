@@ -34,16 +34,16 @@ class gerald:
             self.image = self.phases_images[self.phase]
         if self.phase == "falling_from_sky" and self.time_since_last_phase >= 30:
             if round(self.time_since_last_phase) % 30 == 0:
-                self.game.summon_meteor()
+                self.game.summon("meteor")
         if self.phase == "moon" and self.time_since_last_phase >= 30:
             if round(self.time_since_last_phase) % 20 == 0:
-                self.game.summon_moon()
+                self.game.summon("moon")
         if self.phase == "ray" and self.time_since_last_phase >= 30:
             if round(self.time_since_last_phase) == 31:
-                self.game.summon_ray()
+                self.game.summon("ray")
         if self.phase == "zone_cutoff" and self.time_since_last_phase >= 30:
             if (round(self.time_since_last_phase) - 30) % 60 == 0:
-                self.game.summon_zone()
+                self.game.summon("zone")
         if self.phase == "sun" and self.time_since_last_phase >= 30:
             if round(self.time_since_last_phase) % 20 == 0:
-                self.game.summon_sun()
+                self.game.summon("sun")
