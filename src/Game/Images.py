@@ -1,12 +1,13 @@
 '''
 This code if fully ai made since this part relies on random libraries that I don't feel like learning. The rest of the project is fully human though.
 '''
+'''
 from io import BytesIO
 from pathlib import Path
 import random
 from icoextract import IconExtractor
 from PIL import Image
-import pygame
+
 
 
 def pil_to_surface(pil_img: Image.Image) -> pygame.Surface:
@@ -58,9 +59,18 @@ def load_desktop_surfaces() -> list[tuple[str, pygame.Surface]]:
     return surfaces
 
 
-tile_size = 64
 desktop_surfaces = load_desktop_surfaces()
 print(f"Loaded {len(desktop_surfaces)} surfaces from Desktop.")
+def get_random_surface_from_desktop() -> pygame.Surface | None:
+    if not desktop_surfaces:
+        return None
+    surface = random.choice(desktop_surfaces)[1]
+    pixel_resized = pygame.transform.scale(surface, (tile_size, tile_size)).convert_alpha()
+    return pixel_resized
+'''
+
+import pygame
+tile_size = 64
 images = {
     "falling_from_the_sky": pygame.transform.scale(pygame.image.load("falling_from_the_sky.png"), (tile_size, tile_size)).convert_alpha(),
     "File_explorer": pygame.transform.scale(pygame.image.load("File_Explorer_Icon.webp"), (tile_size, tile_size)).convert_alpha(),
@@ -78,10 +88,3 @@ images = {
     "busy": pygame.transform.scale(pygame.image.load("busy.png"), (tile_size, tile_size)).convert_alpha(),
     "play" : pygame.transform.scale(pygame.image.load("Play.png"), (tile_size, tile_size)).convert_alpha(),
 }
-
-def get_random_surface_from_desktop() -> pygame.Surface | None:
-    if not desktop_surfaces:
-        return None
-    surface = random.choice(desktop_surfaces)[1]
-    pixel_resized = pygame.transform.scale(surface, (tile_size, tile_size)).convert_alpha()
-    return pixel_resized

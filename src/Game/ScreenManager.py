@@ -20,9 +20,11 @@ class screen_manager:
     def update_screen_manager(self,delta_multiplier,game):
         self.mouse_x, self.mouse_y = pygame.mouse.get_pos()
         for text in self.texts:
-            if text.update(delta_multiplier) == True:
+            if text.update(delta_multiplier):
                 self.texts.remove(text)
-
+        for gui_element in self.gui_elements:
+            if gui_element.update(game):
+                self.gui_elements.clear()
 
 class text:
     def __init__(self, text, x, y, size, basetime=2):
@@ -41,7 +43,6 @@ class text:
             text_surface = self.font1.render(self.text, True, (0, 0, 0))
             self.screen.blit(text_surface, (self.x, self.y))
             return False
-
 
 class gui:
     def __init__(self, screen_manager,object_type):
@@ -65,6 +66,8 @@ class gui:
         if self.object_type == "play":
             if self.mask.overlap(self.screen_manager.get_pressed(), (self.x - self.screen_manager.mouse_x, self.y - self.screen_manager.mouse_y)):
                 game.start_game()
+                return(True)
         if self.object_type == "busy":
             if self.mask.overlap(self.screen_manager.get_pressed(), (self.x - self.screen_manager.mouse_x, self.y - self.screen_manager.mouse_y)):
                 game.delay_game()
+                return(True)
