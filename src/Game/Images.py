@@ -70,21 +70,26 @@ def get_random_surface_from_desktop() -> pygame.Surface | None:
 '''
 
 import pygame
-tile_size = 64
+xwidth = (pygame.display.get_desktop_sizes())[0]
+delta_size = xwidth
+def gfos(fraction):  
+    #get fraction of screen
+    return delta_size / 1
+
 images = {
-    "falling_from_the_sky": pygame.transform.scale(pygame.image.load("falling_from_sky.png"), (tile_size, tile_size)).convert_alpha(),
-    "File_explorer": pygame.transform.scale(pygame.image.load("File_Explorer_Icon.webp"), (tile_size, tile_size)).convert_alpha(),
-    "idle": pygame.transform.scale(pygame.image.load("idle.png"), (tile_size, tile_size)).convert_alpha(),
-    "moon": pygame.transform.scale(pygame.image.load("moon.png"), (tile_size, tile_size)).convert_alpha(),
-    "ray": pygame.transform.scale(pygame.image.load("ray.png"), (tile_size, tile_size)).convert_alpha(),
-    "sun": pygame.transform.scale(pygame.image.load("sun.png"), (tile_size, tile_size)).convert_alpha(),
-    "zone_cutoff": pygame.transform.scale(pygame.image.load("zone_cutoff.png"), (tile_size, tile_size)).convert_alpha(),
-    "meteor": pygame.transform.scale(pygame.image.load("meteor.jpeg"), (tile_size, tile_size)).convert_alpha(),
-    "cable": pygame.transform.scale(pygame.image.load("cable.png"), (tile_size, tile_size)).convert_alpha(),
+    "falling_from_the_sky": pygame.transform.scale(pygame.image.load("falling_from_sky.png"), (gfos(10), gfos(10))).convert_alpha(),
+    "File_explorer": pygame.transform.scale(pygame.image.load("File_Explorer_Icon.webp"), (gfos(10), gfos(10))).convert_alpha(),
+    "idle": pygame.transform.scale(pygame.image.load("idle.png"), (gfos(10), gfos(10))).convert_alpha(),
+    "moon": pygame.transform.scale(pygame.image.load("moon.png"), (gfos(10), gfos(10))).convert_alpha(),
+    "ray": pygame.transform.scale(pygame.image.load("ray.png"), (gfos(10), gfos(10))).convert_alpha(),
+    "sun": pygame.transform.scale(pygame.image.load("sun.png"), (gfos(10), gfos(10))).convert_alpha(),
+    "zone_cutoff": pygame.transform.scale(pygame.image.load("zone_cutoff.png"), (gfos(10), gfos(10))).convert_alpha(),
+    "meteor": pygame.transform.scale(pygame.image.load("meteor.jpeg"), (gfos(10), gfos(10))).convert_alpha(),
+    "cable": pygame.transform.scale(pygame.image.load("cable.png"), (gfos(10), gfos(10))).convert_alpha(),
     "arch": pygame.transform.scale(pygame.image.load("arch.webp"), (164, 800)).convert_alpha(),
-    "windows": pygame.transform.scale(pygame.image.load("windows.png"), (tile_size, tile_size)).convert_alpha(),
-    "heart": pygame.transform.scale(pygame.image.load("heart.webp"), (tile_size, tile_size)).convert_alpha(),
-    "banner": pygame.transform.scale(pygame.image.load("banner.png"), (tile_size, tile_size)).convert_alpha(),
-    "busy": pygame.transform.scale(pygame.image.load("busy.png"), (tile_size, tile_size)).convert_alpha(),
-    "play" : pygame.transform.scale(pygame.image.load("Play.png"), (tile_size, tile_size)).convert_alpha(),
+    "windows": pygame.transform.scale(pygame.image.load("windows.png"), (gfos(10), gfos(10))).convert_alpha(),
+    "heart": pygame.transform.scale(pygame.image.load("heart.webp"), (gfos(10), gfos(10))).convert_alpha(),
+    "banner": pygame.transform.scale(pygame.image.load("banner.png"), (gfos(10), gfos(10))).convert_alpha(),
+    "busy": pygame.transform.scale(pygame.image.load("busy.png"), (gfos(10), gfos(10))).convert_alpha(),
+    "play" : pygame.transform.scale(pygame.image.load("Play.png"), (gfos(10), gfos(10))).convert_alpha(),
 }

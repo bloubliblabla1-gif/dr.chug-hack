@@ -31,17 +31,5 @@ class game:
         # u got this, u dont have to remove it just make it shut up
         pass
 
-    def summon_meteor(self):
-        self.objects.append(Tiles.object("meteor", self.screen_manager, 0, 0, self.player))
-
-    def summon_moon(self):
-        self.objects.append(Tiles.object("moon", self.screen_manager, 0, 0, self.player))
-
-    def summon_ray(self):
-        self.objects.append(Tiles.object("ray", self.screen_manager, 0, 0, self.player))
-
-    def summon_zone(self):
-        self.objects.append(Tiles.object("zone", self.screen_manager, 0, 0, self.player))
-
-    def summon_sun(self):
-        self.objects.append(Tiles.object("sun", self.screen_manager, 0, 0, self.player))
+    def summon(self, object_type):
+        self.objects.append(Tiles.object(object_type, self.screen_manager, 0, 0, self.player))
