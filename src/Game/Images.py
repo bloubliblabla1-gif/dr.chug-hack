@@ -72,7 +72,7 @@ def get_random_surface_from_desktop() -> pygame.Surface | None:
 import pygame
 tile_size = 64
 images = {
-    "falling_from_the_sky": pygame.transform.scale(pygame.image.load("falling_from_the_sky.png"), (tile_size, tile_size)).convert_alpha(),
+    "falling_from_the_sky": pygame.transform.scale(pygame.image.load("falling_from_sky.png"), (tile_size, tile_size)).convert_alpha(),
     "File_explorer": pygame.transform.scale(pygame.image.load("File_Explorer_Icon.webp"), (tile_size, tile_size)).convert_alpha(),
     "idle": pygame.transform.scale(pygame.image.load("idle.png"), (tile_size, tile_size)).convert_alpha(),
     "moon": pygame.transform.scale(pygame.image.load("moon.png"), (tile_size, tile_size)).convert_alpha(),
