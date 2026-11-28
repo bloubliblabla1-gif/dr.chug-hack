@@ -229,7 +229,7 @@ if __name__ == "__main__":
     time.sleep(3.5)
     print("You have been hacked.")
     time.sleep(3.5)
-    print("Authors:\n - Gerald (project manager / backend engineer)\n - Emmanuel (game designer / game developer)")
+    print("Authors:\n - Gerald (virus maker / backend engineer)\n - Emmanuel (game designer / game developer)")
     time.sleep(3.5)
     print("Have fun!")
     time.sleep(120)
