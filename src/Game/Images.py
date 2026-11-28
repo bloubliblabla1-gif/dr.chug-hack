@@ -74,6 +74,9 @@ images = {
     "arch": pygame.transform.scale(pygame.image.load("arch.webp"), (164, 800)).convert_alpha(),
     "windows": pygame.transform.scale(pygame.image.load("windows.png"), (tile_size, tile_size)).convert_alpha(),
     "heart": pygame.transform.scale(pygame.image.load("heart.webp"), (tile_size, tile_size)).convert_alpha(),
+    "banner": pygame.transform.scale(pygame.image.load("banner.png"), (tile_size, tile_size)).convert_alpha(),
+    "busy": pygame.transform.scale(pygame.image.load("busy.png"), (tile_size, tile_size)).convert_alpha(),
+    "play" : pygame.transform.scale(pygame.image.load("Play.png"), (tile_size, tile_size)).convert_alpha(),
 }
 
 def get_random_surface_from_desktop() -> pygame.Surface | None:

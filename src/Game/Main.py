@@ -10,6 +10,7 @@ def main():
     screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
     main_screen_manager = screen_manager(screen)
     main_game = game(main_screen_manager)
+
     delta_multiplier = 1
 
     while True:
